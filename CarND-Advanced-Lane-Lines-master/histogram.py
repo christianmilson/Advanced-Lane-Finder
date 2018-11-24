@@ -139,7 +139,35 @@ def find_lanes(binary_warped):
     else:
         left_fit, right_fit, ploty, left_fitx, right_fitx = search_around_poly(binary_warped, left, right)
     
+    # Define conversions in x and y from pixels space to meters
+    ym_per_pix = 30/720 # meters per pixel in y dimension
+    xm_per_pix = 3.7/700 # meters per pixel in x dimension
+    y_eval = np.max(ploty)
+
+    left_fit_cr = np.polyfit(ploty*ym_per_pix, left_fitx*xm_per_pix, 2)
+    right_fit_cr = np.polyfit(ploty*ym_per_pix, right_fitx*xm_per_pix, 2)
+
     pts_left = np.array([np.transpose(np.vstack([left_fitx, ploty]))])
     pts_right = np.array([np.flipud(np.transpose(np.vstack([right_fitx, ploty])))])
     pts = np.hstack((pts_left, pts_right))
-    return reverse(cv2.fillPoly(color_warp, np.int_([pts]), (0, 255, 0)))
+
+    font = cv2.FONT_HERSHEY_PLAIN
+
+    left_curverad = ((1 + (2*left_fit_cr[0] *y_eval*ym_per_pix + left_fit_cr[1])**2) **1.5) / np.absolute(2*left_fit_cr[0])
+    right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
+    image = reverse(cv2.fillPoly(color_warp, np.int_([pts]), (0, 255, 0)))
+    text = "Radius of curvature: " + str(int(right_curverad)) + ' m'
+    cv2.putText(image,text,(300,150), font, 1,(255,255,255),2)
+    
+    #Finding how centered car is in relation to the lane
+    left_lane_bottom = (left_fit[0]*y_eval)**2 + left_fit[0]*y_eval + left_fit[2]
+    right_lane_bottom = (right_fit[0]*y_eval)**2 + right_fit[0]*y_eval + right_fit[2]                       
+    lane_center = (left_lane_bottom + right_lane_bottom)/2.
+    center_image = 640
+    center = (lane_center - center_image)*xm_per_pix
+    if center > 0:
+        text = 'Right of Centre: ' + str(round(center, 2)) + ' m'
+    else:
+        text = 'Left of Centre: ' + str(round(-center, 2)) + ' m'
+    cv2.putText(image,text,(700,150), font, 1,(255,255,255),2)
+    return image
