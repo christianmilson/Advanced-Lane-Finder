@@ -108,7 +108,7 @@ def fit_polynomial(binary_warped):
     out_img[lefty, leftx] = [255, 0, 0]
     out_img[righty, rightx] = [0, 0, 255]
 
-    # Plots the left and right polynomials on the lane lines
+    # # Plots the left and right polynomials on the lane lines
     plt.plot(left_fitx, ploty, color='yellow')
     plt.plot(right_fitx, ploty, color='yellow')
 

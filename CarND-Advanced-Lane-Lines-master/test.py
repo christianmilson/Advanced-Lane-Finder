@@ -9,6 +9,7 @@ from perspective_transform import perspectiveTransform
 from thresholding import thresholdingProcessing
 from moviepy.editor import VideoFileClip
 from histogram import fit_polynomial
+from color import init
 
 if os.path.exists('calibration.p') is not True:
     print('Camera is not calibrated \nRun calibration.py')
@@ -19,7 +20,7 @@ calibration = pickle.load(open('calibration.p', 'rb'))
 mtx, dist = map(calibration.get, ('mtx', 'dist'))
 
 #Original image
-image = cv2.imread('test_images/test4.jpg')
+image = cv2.imread('test_images/straight_lines2.jpg')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 #Calibrated image
@@ -29,17 +30,33 @@ drawLines = draw(undist)
 
 transform = perspectiveTransform(undist)
 
-threshold = thresholdingProcessing(transform)
+# threshold = thresholdingProcessing(transform)
 
-histogram = fit_polynomial(threshold)
+test = init(transform)
 
-plt.imshow(histogram[0])
+
+histogram = fit_polynomial(test)
+
+plt.imshow(test, cmap='gray')
 #plt.imshow(undist)
 plt.show()
 
-print(histogram[1])
-print(histogram[2])
+# print(histogram[1])
+# print(histogram[2])
 
+# cap = cv2.VideoCapture('video.mp4')
+
+# while(cap.isOpened()):
+#     ret, frame = cap.read()
+
+#     frame = init(frame)
+
+#     cv2.imshow('frame',frame)
+#     if cv2.waitKey(1) & 0xFF == ord('q'):
+#         break
+
+# cap.release()
+# cv2.destroyAllWindows()
 
 
 
