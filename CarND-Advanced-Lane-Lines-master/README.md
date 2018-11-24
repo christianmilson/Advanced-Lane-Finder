@@ -23,5 +23,5 @@ The goals / steps of this project were the following:
 Requirements
 ---
 
-Python3 installed.
-OpenCV library.
+* Python3 installed.
+* OpenCV library.
