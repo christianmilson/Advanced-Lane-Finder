@@ -19,3 +19,9 @@ The goals / steps of this project were the following:
 * Determine the curvature of the lane and vehicle position with respect to center.
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
+
+Requirements
+---
+
+Python3 installed.
+OpenCV library.
