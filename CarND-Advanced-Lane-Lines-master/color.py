@@ -1,45 +1,31 @@
 import cv2
 import numpy as np
 
-def init(rgb_image):
+def threshold(rgb_image):
     gray = convert_gray(rgb_image)
 
     white = whiteDetection(rgb_image)
     yellow = yellowDetection(rgb_image)
 
-    bottom = np.zeros_like(yellow)
-    bottom[(white == 1) | (yellow == 1)] = 1
+    color_space = np.zeros_like(yellow)
+    color_space[(white == 1) | (yellow == 1)] = 1
 
     gradx = abs_sobel_thresh(gray, orient='x', thresh=(20, 100))
     grady = abs_sobel_thresh(gray, orient='y', thresh=(20,100))
     mag_binary = mag_thresh(gray, mag_thresh=(30, 100))
     dir_binary = dir_threshold(gray, sobel_kernel=15, thresh=(0.7, 1.3))
     
-    top = np.zeros_like(dir_binary)
-    top[((gradx == 1) & (grady == 1)) | ((mag_binary == 1) & (dir_binary == 1))] = 1
+    edge_detection = np.zeros_like(dir_binary)
+    edge_detection[((gradx == 1) & (grady == 1)) | ((mag_binary == 1) & (dir_binary == 1))] = 1
 
-    result = np.zeros_like(top)
-    result[(top == 1) | (bottom == 1)] = 1
+    result = np.zeros_like(edge_detection)
+    result[(edge_detection == 1) | (color_space == 1)] = 1
 
     return result
 
 
 def whiteDetection(image):
 
-    # def bin_it(image, threshold):
-    #     bin = np.zeros_like(image)
-    #     bin[(image >= threshold[0]) & (image <= threshold[1])] = 1
-    #     return bin
-
-    # bin_thresh = [20,255]
-
-    # lower = np.array([100,100,200])
-    # upper = np.array([255,255,255])
-    # mask = cv2.inRange(image, lower, upper)
-    # mask = cv2.bitwise_and(image, image, mask = mask)
-    # mask = cv2.cvtColor(mask, cv2.COLOR_RGB2GRAY)
-    # mask = bin_it(mask, bin_thresh)
-    # return mask
     l_channel = cv2.cvtColor(image, cv2.COLOR_RGB2LUV)[:,:,0]
     thresh_min = 225
     thresh_max = 255

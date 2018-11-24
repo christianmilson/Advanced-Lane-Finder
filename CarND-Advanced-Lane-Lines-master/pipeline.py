@@ -7,7 +7,7 @@ import os
 from perspective_transform import perspectiveTransform, reverse
 from moviepy.editor import VideoFileClip
 from histogram import find_lanes
-from color import init
+from color import threshold
 
 if os.path.exists('calibration.p') is not True:
     print('Camera is not calibrated \nRun calibration.py')
@@ -24,7 +24,7 @@ def pipeline(image):
 
     transform = perspectiveTransform(undist)
 
-    test = init(transform)
+    test = threshold(transform)
 
     histogram = find_lanes(test)
 
