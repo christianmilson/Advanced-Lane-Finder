@@ -26,9 +26,9 @@ RequirementsI
 * Python3 installed.
 * OpenCV libraru.
 
-Pipeline
+Pipelinelmknsd
 ---
 ### Camera Calibration
 Due to the curvature of a camera lens, individual frames in a video are distorted. Distortion affects the size and shapes of objects in a video, and can make an object appear closer or farther away then they actually are. To correct for this  used the cv2.findChessboardCorners() method provided by OpenCV which generates a calibration file which applies a coefficient to each frame in the video.
 
-![ScreenShot](https://prnt.sc/lmknsd)
+![ScreenShot](https://imgur.com/a/Ko9aXgX)
