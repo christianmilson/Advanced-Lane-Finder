@@ -20,7 +20,7 @@ The goals / steps of this project were the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-Requirements
+RequirementsI
 ---
 
 * Python3 installed.
@@ -29,4 +29,6 @@ Requirements
 Pipeline
 ---
 ### Camera Calibration
-Due to the curvature of a camera lens, individual frames in a video are distorted. Distortion affects the size and shapes of objects in a video, and can make an object appear closer or farther away then they actually are. To correct for this I used the cv2.findChessboardCorners() method provided by OpenCV.
+Due to the curvature of a camera lens, individual frames in a video are distorted. Distortion affects the size and shapes of objects in a video, and can make an object appear closer or farther away then they actually are. To correct for this  used the cv2.findChessboardCorners() method provided by OpenCV which generates a calibration file which applies a coefficient to each frame in the video.
+
+![](https://prnt.sc/lmknsd)
