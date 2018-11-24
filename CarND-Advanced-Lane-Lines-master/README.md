@@ -29,3 +29,4 @@ Requirements
 Pipeline
 ---
 ### Camera Calibration
+Due to the curvature of a camera lens, individual frames in a video are distorted. Distortion affects the size and shapes of objects in a video, and can make an object appear closer or farther away then they actually are. To correct for this I used the cv2.findChessboardCorners() method provided by OpenCV.
