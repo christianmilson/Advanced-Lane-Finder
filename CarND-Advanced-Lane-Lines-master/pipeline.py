@@ -32,7 +32,7 @@ def pipeline(image):
 
     return result
 
-output = 'output2.mp4'
+output = 'output.mp4'
 clip1 = VideoFileClip("project_video.mp4")
 
 white_clip = clip1.fl_image(pipeline) #NOTE: this function expects color images!!
