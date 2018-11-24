@@ -14,15 +14,15 @@ objpoints = [] # 3d point in real world space
 imgpoints = [] # 2d points in image plane.
 images = glob.glob('./camera_cal/calibration*.jpg')
 for fname in images:
-    img = cv.imread(fname)
-    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
-    # Find the chess board corners
-    ret, corners = cv.findChessboardCorners(gray, (9,6), None)
-    # If found, add object points, image points (after refining them)
-    if ret == True:
-        objpoints.append(objp)
-        corners2 = cv.cornerSubPix(gray,corners, (11,11), (-1,-1), criteria)
-        imgpoints.append(corners)
+        img = cv.imread(fname)
+        gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+        # Find the chess board corners
+        ret, corners = cv.findChessboardCorners(gray, (9,6), None)
+        # If found, add object points, image points (after refining them)
+        if ret == True:
+                objpoints.append(objp)
+                corners2 = cv.cornerSubPix(gray,corners, (11,11), (-1,-1), criteria)
+                imgpoints.append(corners)
 
 
 # Test undistortion on an image
@@ -38,12 +38,4 @@ dist_pickle = {}
 dist_pickle["mtx"] = mtx
 dist_pickle["dist"] = dist
 pickle.dump( dist_pickle, open( "calibration.p", "wb" ) )
-# Visualize undistortion
-# f, (ax1, ax2) = plt.subplots(1, 2, figsize=(20,10))
-# f.subplots_adjust(hspace = .2, wspace=.05)
-# ax1.imshow(img)
-# ax1.set_title('Original Image', fontsize=30)
-# ax2.imshow(dst)
-# ax2.set_title('Undistorted Image', fontsize=30)
-# plt.show()
 
