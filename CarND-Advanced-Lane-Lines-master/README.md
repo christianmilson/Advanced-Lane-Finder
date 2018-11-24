@@ -24,4 +24,7 @@ Requirements
 ---
 
 * Python3 installed.
-* OpenCV library.
+* OpenCV libraru.
+
+Pipeline
+---
