@@ -72,8 +72,7 @@ I then transformed the image back to its original orientation and combined it wi
 
 ![Screenshot](camera_cal/result10.JPG)
 
-Radius and Position Calculation
----
+### Radius and Position Calculation
 
 First I calculated how many pixels represented one metre.
 
@@ -92,7 +91,8 @@ This generates the radius of the left lane in metres.
 
 To find the position of the car in relation to the centre of the lane, I calculated the actual position of the centre of the lane by calculating the average of the positions of the bottom of the left and right lanes. I then minused the average by half the width of the frame and multiplied the number by how many pixels represented one metre in the x_coordinate.
 
-### Fallbacks with my approach
+Fallbacks with my approach
+---
 
 The biggest fallback is the pipelines ability to handle sudden changes from bright to dark roads, the color thresholding briefly struggles to find a lane resulting in the reliance on the sobel operator. This issue seems to improve by increasing the transform so that more road is feed into the thresholding function.
 As this approach is entirely based on being able to see the lane line, the pipeline will be affected by snow and faint road lines.
