@@ -45,3 +45,5 @@ I used two approaches:
 * The first was using a Sobel Operator to detect Color Gradients in the image. As roads are usually dark and lines are bright the sudden change in gradient around the line allows us to detect the edges around the road lines. This worked well however light reflecting off water on the road sometimes caused interfence so I used a magnitude and direction threshold to denoise the final result.
 
 ![ScreenShot](camera_cal/result3.png)
+
+* The second approach was to use different colorspaces to detect both the yellow and white colors present in the lines. For White I used the L_channel of the LUV colorspace and for yellow I used both the HSV and HLS colorspace.
