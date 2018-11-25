@@ -77,6 +77,8 @@ Radius and Position Calculation
 
 First I calculated how many pixels represented one metre.
 
-Using thee equations:
+Using these equations:
 
 ![Screenshot](camera_cal/result11.JPG)
+
+left_curverad = ((1 + (2*left_fit_cr[0] *y_eval*ym_per_pix + left_fit_cr[1])**2) **1.5) / np.absolute(2*left_fit_cr[0])
