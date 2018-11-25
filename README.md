@@ -59,3 +59,5 @@ I used two approaches:
 The first thing I did was to generate a histogram from the combined binary of the result image.
 
 ![Screenshot](camera_cal/result7.png)
+
+As the image is binary, the peaks on the histogram represent the white areas in the image, with the general assumption being that areas that have higher peaks collerate to the road lines. From the histogram we then use a sliding windows algorithm, this generates a histogram in the bottom half of the image detecting the base of the left and right lane. We then build up 9 windows which slide left and right around the activated pixels in the binary output.
