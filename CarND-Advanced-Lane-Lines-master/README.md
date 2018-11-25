@@ -49,3 +49,7 @@ I used two approaches:
 * The second approach was to use different colorspaces to detect both the yellow and white colors present in the lines. For White I used the L_channel of the LUV colorspace and for yellow I used both the HSV and HLS colorspace.
 
 ![ScreenShot](camera_cal/result4.png)
+
+* By combining both the combined binaries from the two different approaches, we get the final result.
+
+![ScreenShot](camera_cal/result5.png)
