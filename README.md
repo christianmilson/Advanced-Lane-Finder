@@ -71,3 +71,8 @@ I then drew inbetween the two polynomial lines, to represent the area inbetween 
 I then transformed the image back to its original orientation and combined it with the original undisorted image, using the cv2.addWeighted method.
 
 ![Screenshot](camera_cal/result10.JPG)
+
+Radius and Position Calculation
+---
+
+First I calculated how many pixels represented one metre, 
