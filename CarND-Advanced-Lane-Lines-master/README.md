@@ -16,7 +16,7 @@ The goals / steps of this project were the following:
 * Use color transforms, gradients, etc., to create a thresholded binary image.
 * Apply a perspective transform to rectify binary image ("birds-eye view").
 * Detect lane pixels and fit to find the lane boundary.
-* Determine the curvature of tKo9aXgXhe lane and vehicle position with respect to center.
+* Determine the curvature of tKo9aXgXhe lane and vehicle position with respecroadst to center.
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
@@ -42,4 +42,4 @@ I then transformed the image into a birds eye perspective. This simplifies calcu
 ### Lane Detection
 
 I used two approaches:
-* The first was using a Sobel Operator to detect Color Gradients in the image because roads are usually dark and lines are bright the sudden change in gradient around the line allows us to detect the edges around the road lines.
+* The first was using a Sobel Operator to detect Color Gradients in the image. As roads are usually dark and lines are bright the sudden change in gradient around the line allows us to detect the edges around the road lines. This worked well however light reflecting off water on the road sometimes caused interfence so I used a magnitude and direction threshold to denoise the final result.
