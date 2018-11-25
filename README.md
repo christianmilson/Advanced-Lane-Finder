@@ -35,7 +35,7 @@ Due to the curvature of a camera lens, individual frames in a video are distorte
 
 ### Perspective Transform
 
-I then transformed the image into a birds eye perspective. This simplifies calculating the curvature of the road lane and allows us to work in a region of interest.
+I then transformed the image into a birds eye perspective. This simplifies calculating the curvature of the road lane and allows us to work in a region of interest. I used the cv2.getPerspectiveTransform and cv2.warpPerspective methods.
 
 ![ScreenShot](camera_cal/result2.png)
 
@@ -64,7 +64,7 @@ As the image is binary, the peaks on the histogram represent the white areas in 
 
 ![Screenshot](camera_cal/result8.JPG)
 
-I then drew inbetween the two polynomial lines, to represent the area inbetween the road lines.
+I then drew inbetween the two polynomial lines, to represent the area inbetween the road lines. Using the cv2.fillPoly method
 
 ![Screenshot](camera_cal/result9.JPG)
 
