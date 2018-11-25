@@ -82,3 +82,12 @@ Using these equations:
 ![Screenshot](camera_cal/result11.JPG)
 
 left_curverad = ((1 + (2*left_fit_cr[0] *y_eval*ym_per_pix + left_fit_cr[1])**2) **1.5) / np.absolute(2*left_fit_cr[0])
+
+Where:
+* left_fit_cr[0] represents the first coefficient of the polynomial.
+* left_fit_cr[1] represents the second coefficient of the polynomial.
+* ym_per_pix represents the number of pixels per meter in the y dimension.
+
+This generates the radius of the left lane in metres.
+
+To find the position of the car in relation to the centre of the lane, I calculated the actual position of the centre of the lane by calculating the average of the positions of the bottom of the left and right lanes. I then minused the average by half the width of the frame and multiplied the number by how many pixels represented one metre in the x_coordinate.
