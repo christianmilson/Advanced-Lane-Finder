@@ -47,3 +47,5 @@ I used two approaches:
 ![ScreenShot](camera_cal/result3.png)
 
 * The second approach was to use different colorspaces to detect both the yellow and white colors present in the lines. For White I used the L_channel of the LUV colorspace and for yellow I used both the HSV and HLS colorspace.
+
+![ScreenShot](camera_cal/result4.png)
