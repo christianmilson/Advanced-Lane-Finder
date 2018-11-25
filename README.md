@@ -16,11 +16,11 @@ The goals / steps of this project were the following:
 * Use color transforms, gradients, etc., to create a thresholded binary image.
 * Apply a perspective transform to rectify binary image ("birds-eye view").
 * Detect lane pixels and fit to find the lane boundary.
-* Determine the curvature of tKo9aXgXhe lane and vehicle position with respecroadst to center.
+* Determine the curvature of the lane and vehicle position with respecroadst to center.
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-RequirementsI
+Requirements
 ---
 
 * Python3 installed.
