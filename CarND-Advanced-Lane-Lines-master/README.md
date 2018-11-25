@@ -31,4 +31,4 @@ Pipeline
 ### Camera Calibration
 Due to the curvature of a camera lens, individual frames in a video are distorted. Distortion affects the size and shapes of objects in a video, and can make an object appear closer or farther away then they actually are. To correct for this  used the cv2.findChessboardCorners() method provided by OpenCV which generates a calibration file which applies a coefficient to each frame in the video.
 
-![ScreenShot](line_finer/CarND-Advanced-Lane-Lines-master/camera_cal/result.png)
+![ScreenShot](camera_cal/result.png)
