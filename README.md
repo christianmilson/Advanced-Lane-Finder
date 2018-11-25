@@ -75,4 +75,8 @@ I then transformed the image back to its original orientation and combined it wi
 Radius and Position Calculation
 ---
 
-First I calculated how many pixels represented one metre, 
+First I calculated how many pixels represented one metre.
+
+Using thee equations:
+
+![Screenshot](camera_cal/result11.JPG)
