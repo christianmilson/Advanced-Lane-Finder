@@ -62,4 +62,4 @@ The first thing I did was to generate a histogram from the combined binary of th
 
 As the image is binary, the peaks on the histogram represent the white areas in the image, with the general assumption being that areas that have higher peaks collerate to the road lines. From the histogram we then use a sliding windows algorithm, this generates a histogram in the bottom half of the image detecting the base of the left and right lane. We then build up 9 windows which slide left and right around the activated pixels in the binary output. This tracks the line from the bottom to the top of the image. The coordinates of the Activated Pixels inside the windows are fed into the numpy polyfit method generating a polynomial line; which represent the road lines.
 
-![Screenshot](camera_cal/result8.jpg)
+![Screenshot](camera_cal/result8.JPG)
