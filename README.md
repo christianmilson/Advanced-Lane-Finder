@@ -55,3 +55,7 @@ I used two approaches:
 ![ScreenShot](camera_cal/result6.png)
 
 ### Line Calculation
+
+The first thing I did was to generate a histogram from the combined binary of the result image.
+
+![Screenshot](camera_cal/result7.png)
