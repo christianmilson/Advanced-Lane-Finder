@@ -38,3 +38,8 @@ Due to the curvature of a camera lens, individual frames in a video are distorte
 I then transformed the image into a birds eye perspective. This simplifies calculating the curvature of the road lane and allows us to work in a region of interest.
 
 ![ScreenShot](camera_cal/result2.png)
+
+### Lane Detection
+
+I used two approaches:
+* The first was using a Sobel Operator to detect Color Gradients in the image because roads are usually dark and lines are bright the sudden change in gradient around the line allows us to detect the edges around the road lines.
