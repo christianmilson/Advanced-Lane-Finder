@@ -64,4 +64,6 @@ As the image is binary, the peaks on the histogram represent the white areas in 
 
 ![Screenshot](camera_cal/result8.JPG)
 
+We then draw inbetween the two polynomial lines, to represent the area inbetween the road lines.
 
+![Screenshot](camera_cal/result9.JPG)
