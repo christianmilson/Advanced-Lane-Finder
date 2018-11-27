@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-from perspective_transform import reverse
+from perspective_transform import perspectiveTransform
 
 first = True
 left = []
@@ -155,7 +155,7 @@ def find_lanes(binary_warped):
 
     left_curverad = ((1 + (2*left_fit_cr[0] *y_eval*ym_per_pix + left_fit_cr[1])**2) **1.5) / np.absolute(2*left_fit_cr[0])
     right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
-    image = reverse(cv2.fillPoly(color_warp, np.int_([pts]), (0, 255, 0)))
+    image = perspectiveTransform(cv2.fillPoly(color_warp, np.int_([pts]), (0, 255, 0)), True)
     text = "Radius of curvature: " + str(int(right_curverad)) + ' m'
     cv2.putText(image,text,(300,150), font, 1,(255,255,255),2)
     

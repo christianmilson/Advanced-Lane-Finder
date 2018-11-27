@@ -4,7 +4,7 @@ import pickle
 import glob
 import matplotlib.pyplot as plt
 import os
-from perspective_transform import perspectiveTransform, reverse
+from perspective_transform import perspectiveTransform
 from moviepy.editor import VideoFileClip
 from histogram import find_lanes
 from color import threshold
