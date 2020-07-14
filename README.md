@@ -4,7 +4,7 @@
 Result
 ---
 
-![](https://media.giphy.com/media/2WGS9JBb3N13ylK6IN/giphy.gif)
+![](https://media.giphy.com/media/hsIYz074ReT2tocZzH/giphy.gif)
 
 The Project
 ---
